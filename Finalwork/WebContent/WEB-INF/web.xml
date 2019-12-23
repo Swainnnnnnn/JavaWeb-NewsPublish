@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>Final</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+   <filter>
+		<filter-name>LoginFilter</filter-name>
+		<filter-class>com.rainsia.news.user.filter.LoginFilter</filter-class>
+		<init-param>
+			<param-name>LOGIN_PATH</param-name>
+			<param-value>/log_sign_in.jsp</param-value>
+		</init-param>
+		<init-param>
+			<param-name>DO_LOGIN_PATH</param-name>
+			<param-value>/login.action</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>LoginFilter</filter-name>
+		<url-pattern>/changepassword.jsp</url-pattern>
+	</filter-mapping> 
+	
+	 <filter>
+		<filter-name>SigninFilter</filter-name>
+		<filter-class>com.rainsia.news.user.filter.SigninFilter</filter-class>
+		<init-param>
+			<param-name>LOGIN_PATH</param-name>
+			<param-value>/log_sign_in.jsp</param-value>
+		</init-param>
+		<init-param>
+			<param-name>DO_LOGIN_PATH</param-name>
+			<param-value>/signin.action</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>SigninFilter</filter-name>
+		<url-pattern>/protectpassword.jsp</url-pattern>
+	</filter-mapping> 
+	
+	
+  
+  <servlet>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>com.rainsia.news.user.servlet.LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/login.action</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>LogoutServlet</servlet-name>
+		<servlet-class>com.rainsia.news.user.servlet.LogoutServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LogoutServlet</servlet-name>
+		<url-pattern>/logout.action</url-pattern>
+	</servlet-mapping>
+  
+    <servlet>
+		<servlet-name>SigninServlet</servlet-name>
+		<servlet-class>com.rainsia.news.user.servlet.SigninServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SigninServlet</servlet-name>
+		<url-pattern>/signin.action</url-pattern>
+	</servlet-mapping>
+    
+    <servlet>
+		<servlet-name>ForgetPasswordServlet</servlet-name>
+		<servlet-class>com.rainsia.news.user.servlet.ForgetPasswordServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ForgetPasswordServlet</servlet-name>
+		<url-pattern>/forgetpassword.action</url-pattern>
+	</servlet-mapping> 
+     
+    <servlet>
+		<servlet-name>ChangePasswordServlet</servlet-name>
+		<servlet-class>com.rainsia.news.user.servlet.ChangePassword</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ChangePasswordServlet</servlet-name>
+		<url-pattern>/changepassword.action</url-pattern>
+	</servlet-mapping> 
+     
+     <servlet>
+		<servlet-name>ProtectPasswordServlet</servlet-name>
+		<servlet-class>com.rainsia.news.user.servlet.Protectpassword</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ProtectPasswordServlet</servlet-name>
+		<url-pattern>/protectpassword.action</url-pattern>
+	</servlet-mapping> 
+     
+<!--  <resource-ref>
+  <res-ref-name>jdbc/registration</res-ref-name>
+  <res-type>javax.sql.DataSource</res-type>
+  <res-auth>Container</res-auth>
+ </resource-ref> -->
+  
+</web-app>

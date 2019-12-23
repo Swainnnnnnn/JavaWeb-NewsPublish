@@ -1,0 +1,28 @@
+.detail_picture {
+    float: left;
+}
+
+.detail_message {
+    position: relative;
+    left: 20px;
+}
+
+.blockquote{
+   margin-top: 50px;
+}
+
+
+.clearfix {
+    *zoom: 1;
+}
+
+.clearfix::after{
+    content: ".";
+    display: block;
+    clear: both;
+
+    height: 0;
+    visibility: hidden;
+}
+
+ 	
